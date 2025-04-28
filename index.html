@@ -76,6 +76,88 @@
         <img src="assets/media/adv.svg" alt="">
     </div>
 
+    <div class="tab_content container">
+        <h2>Sleek dashboard for managing your media</h2>
+        <p>A complete Object Explorer so that any of your team can use.</p>
+        <p>Drag and drop uploading, moving objects, and multiple object selection. As easy as working on your desktop.
+        </p>
+        <div class="tab" id="tab-1">
+            <div class="tab-nav">
+                <div class="tabs_btns">
+                    <button type="button" class="tab-btn tab-btn-active" data-target-id="0">File previews</button>
+                    <button type="button" class="tab-btn" data-target-id="1">Column view</button>
+                    <button type="button" class="tab-btn" data-target-id="2">List view</button>
+                    <button type="button" class="tab-btn" data-target-id="3">Multi select actions</button>
+                    <button type="button" class="tab-btn" data-target-id="4">Path navigator</button>
+                </div>
+
+                <div class="tab-content">
+                    <img src="assets/media/tabs/1.png" alt="" class="tab-pane tab-pane-show tab_img" data-id="0">
+                    <img src="assets/media/tabs/2.jpg" alt="" class="tab-pane tab_img" data-id="1">
+                    <img src="assets/media/tabs/3.jpg" alt="" class="tab-pane tab_img" data-id="2">
+                    <img src="assets/media/tabs/4.jpg" alt="" class="tab-pane tab_img" data-id="3">
+                    <img src="assets/media/tabs/5.jpg" alt="" class="tab-pane tab_img" data-id="4">
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane tab-pane-show" data-id="0">
+                    <p>Вкладка 1</p>
+                    <p>Preview any media type, including video and audio.</p>
+                    <img src="assets/media/tabs/right_content.svg" alt="">
+                </div>
+                <div class="tab-pane" data-id="1">
+                    <p>Вкладка 2</p>
+                    <p>Preview any media type, including video and audio.</p>
+                    <img src="assets/media/tabs/right_content.svg" alt="">
+                </div>
+                <div class="tab-pane" data-id="2">
+                    <p>Вкладка 3</p>
+                    <p>Preview any media type, including video and audio.</p>
+                    <img src="assets/media/tabs/right_content.svg" alt="">
+                </div>
+                <div class="tab-pane" data-id="3">
+                    <p>Вкладка 4</p>
+                    <p>Preview any media type, including video and audio.</p>
+                    <img src="assets/media/tabs/right_content.svg" alt="">
+                </div>
+                <div class="tab-pane" data-id="4">
+                    <p>Вкладка 5</p>
+                    <p>Preview any media type, including video and audio.</p>
+                    <img src="assets/media/tabs/right_content.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const showTab = (elTabBtn) => {
+            const elTab = elTabBtn.closest('.tab');
+            if (elTabBtn.classList.contains('tab-btn-active')) {
+                return;
+            }
+            const targetId = elTabBtn.dataset.targetId;
+            const elTabPanes = elTab.querySelectorAll(`.tab-pane[data-id="${targetId}"]`);
+            if (elTabPanes.length > 0) {
+                const elTabBtnActive = elTab.querySelector('.tab-btn-active');
+                elTabBtnActive.classList.remove('tab-btn-active');
+                const elTabPanesShow = elTab.querySelectorAll('.tab-pane-show');
+                elTabPanesShow.forEach(pane => pane.classList.remove('tab-pane-show'));
+                elTabPanes.forEach(pane => pane.classList.add('tab-pane-show'));
+                elTabBtn.classList.add('tab-btn-active');
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            if (e.target && !e.target.closest('.tab-btn')) {
+                return;
+            }
+            const elTabBtn = e.target.closest('.tab-btn');
+            showTab(elTabBtn);
+        });
+    </script>
+
     <div class="main-block container">
         <h2>Integrates natively<br>with Supabase Auth</h2>
 
@@ -147,7 +229,7 @@
                 </div>
                 <div class="slide"><img src="assets/media/slides/2.jpg" alt="Slide 2" class="slide_img">
                 </div>
-                <div class="slide"><img src="assets/media/slides/3.jpg"  alt="Slide 3" class="slide_img">
+                <div class="slide"><img src="assets/media/slides/3.jpg" alt="Slide 3" class="slide_img">
                 </div>
             </div>
 
