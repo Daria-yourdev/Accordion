@@ -140,7 +140,55 @@
                 })
             }
         </script>
-    </div>
+
+        <div class="slider">
+            <div class="slides">
+                <div class="slide"><img src="assets/media/slides/1.jpg" alt="Slide 1" class="slide_img">
+                </div>
+                <div class="slide"><img src="assets/media/slides/2.jpg" alt="Slide 2" class="slide_img">
+                </div>
+                <div class="slide"><img src="assets/media/slides/3.jpg"  alt="Slide 3" class="slide_img">
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control" id="prevBtn">&lt;</button>
+                <button class="control" id="nextBtn">&gt;</button>
+            </div>
+
+            <script>
+                const slides = document.querySelector('.slides');
+                const slide = document.querySelectorAll('.slide');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                let currentIndex = 0;
+                const totalSlides = slide.length;
+
+                function updateSliderPosition() {
+                    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentIndex < totalSlides - 1) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    updateSliderPosition();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                    } else {
+                        currentIndex = totalSlides - 1;
+                    }
+                    updateSliderPosition();
+                });
+            </script>
+
+        </div>
 </body>
 
 </html>
