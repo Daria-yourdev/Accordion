@@ -62,8 +62,77 @@
 
         <div class="header-btns">
             <img src="assets/media/btn1_header.svg" alt="" style="cursor: pointer;">
-            <button class="header-btn1">Sign in</button>
+            <button class="header-btn1" id="authBtn">Sign in</button>
         </div>
+
+        <div id="authModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <div class="auth-tabs">
+                    <button class="tablinks active" onclick="openTab(event, 'login')">Sign in</button>
+                    <button class="tablinks" onclick="openTab(event, 'register')">Register</button>
+                </div>
+
+                <div id="login" class="tabcontent" style="display: block;">
+                    <form>
+                        <input type="text" placeholder="Username">
+                        <input type="password" placeholder="Password">
+                        <button type="submit">Sign in</button>
+                    </form>
+                </div>
+
+                <div id="register" class="tabcontent">
+                    <form>
+                        <input type="text" placeholder="Username">
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Confirm Password">
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Получаем элементы
+            const modal = document.getElementById("authModal");
+            const btn = document.getElementById("authBtn");
+            const span = document.getElementsByClassName("close")[0];
+
+            // Открываем модальное окно при клике на кнопку
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // Закрываем модальное окно при клике на крестик
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // Закрываем модальное окно при клике вне его
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Функция для переключения между вкладками
+            function openTab(evt, tabName) {
+                const tabcontent = document.getElementsByClassName("tabcontent");
+                for (let i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                const tablinks = document.getElementsByClassName("tablinks");
+                for (let i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+        </script>
     </header>
 
     <hr>
@@ -81,7 +150,7 @@
         <p>A complete Object Explorer so that any of your team can use.</p>
         <p>Drag and drop uploading, moving objects, and multiple object selection. As easy as working on your desktop.
         </p>
-        <div class="tab" id="tab-1">
+        <div class="tab_auth" id="tab-1">
             <div class="tab-nav">
                 <div class="tabs_btns">
                     <button type="button" class="tab-btn tab-btn-active" data-target-id="0">File previews</button>

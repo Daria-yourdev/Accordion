@@ -8,6 +8,7 @@
 
 body {
     background-color: #181818;
+    overflow-x: hidden;
 }
 
 .container {
@@ -36,6 +37,102 @@ header {
     padding-left: 20px;
     color: #ffffff;
     cursor: pointer;
+}
+
+/* Стили модального окна */
+.header-btns {
+    display: flex;
+    align-items: center;
+}
+
+.header-btn1 {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Стили модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-tabs {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.auth-tabs button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: 0.3s;
+}
+
+.auth-tabs button.active {
+    border-bottom: 2px solid #24B47E;
+    color: #24B47E;
+}
+
+.tabcontent {
+    display: none;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #24B47E;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #24B47E;
 }
 
 hr {
@@ -201,6 +298,7 @@ h2 {
     align-items: center;
     padding: 50px 0px;
 }
+
 .tab-btn {
     color: #ffffff;
     font-size: 16px;
@@ -241,4 +339,39 @@ h2 {
     width: 560px;
     height: 369px;
     overflow: hidden;
+}
+
+/* modal */
+.modal {
+    display: none;
+    /* скрыт по умолчанию */
+    /* темный фон при открытии модалки должен быть на всю страницу */
+    position: fixed;
+    z-index: 1;
+    /* поверх всех элементов */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    /* полная ширина */
+    height: 100vh;
+    /* полная высота */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* цвет фона - прозрачный черный */
+}
+
+/* само модальное окно с контентом */
+.modal-content {
+    background-color: #fff;
+    /* окно будет находится по центру по горизонтали и с отступом сверху в 100 px */
+    margin: 100px auto;
+    padding: 20px;
+    width: 50%;
+    font-size: 20px;
+    /* разнесем текст и кнопоку по краям окна */
+    display: flex;
+    justify-content: space-between;
+}
+
+span {
+    cursor: pointer;
 }
