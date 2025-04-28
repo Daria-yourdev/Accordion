@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akkordion</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="container">
+        <img src="assets/media/logo.png" alt="">
+
+        <nav>
+            <div class="dropdown">
+                <button onclick="toggleDropdown()" class="dropbtn">Product<img src="assets/media/icons/arrpw_nav.svg"
+                        alt=""></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Ссылка 1</a>
+                    <a href="#">Ссылка 2</a>
+                    <a href="#">Ссылка 3</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button onclick="toggleDropdown()" class="dropbtn">Developers<img src="assets/media/icons/arrpw_nav.svg"
+                        alt=""></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Ссылка 1</a>
+                    <a href="#">Ссылка 2</a>
+                    <a href="#">Ссылка 3</a>
+                </div>
+            </div>
+
+            <a href="#" class="dropbtn">Beta</a>
+            <a href="#" class="dropbtn">Pricing</a>
+        </nav>
+
+        <script>
+            function toggleDropdown() {
+                document.getElementById('myDropdown').classList.toggle('show');
+            }
+
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <div class="header-btns">
+            <img src="assets/media/btn1_header.svg" alt="" style="cursor: pointer;">
+            <button class="header-btn1">Sign in</button>
+        </div>
+    </header>
+
+    <hr>
+
+    <div class="banner container">
+        <img src="assets/media/banner.svg" alt="">
+    </div>
+
+    <div class="adv container">
+        <img src="assets/media/adv.svg" alt="">
+    </div>
+
+    <div class="main-block container">
+        <h2>Integrates natively<br>with Supabase Auth</h2>
+
+        <p class="accordion">Using Postgres Row Level Security to create Object access rules. <img
+                src="assets/media/icons/arrpw_nav.svg" alt=""></p>
+        <div class="panel">
+            <p>Using Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to
+                create Object access rules.Using Postgres Row Level Security to create Object access rules.Using
+                Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to create
+                Object access rules.Using Postgres Row Level Security to create Object access rules.</p>
+        </div>
+
+        <p>Storage Authorization is built around Postgres so that you can use any combination of SQL, Postgres
+            functions, and even your own metadata to write policies.Storage Authorization is built around Postgres so
+            that you can use any combination of SQL, Postgres functions, and even your own metadata to write
+            policies.Storage is built around Postgres so that you can use any combination of SQL, Postgres functions,
+            and even your own metadata to write policies.</p>
+
+        <img src="assets/media/btn_accorion.svg" alt="" class="btn_acordion">
+
+        <p class="accordion">Using Postgres Row Level Security to create Object access rules. <img
+                src="assets/media/icons/arrpw_nav.svg" alt=""></p>
+        <div class="panel">
+            <p>Using Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to
+                create Object access rules.Using Postgres Row Level Security to create Object access rules.Using
+                Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to create
+                Object access rules.Using Postgres Row Level Security to create Object access rules.</p>
+        </div>
+
+        <p class="accordion">Using Postgres Row Level Security to create Object access rules. <img
+                src="assets/media/icons/arrpw_nav.svg" alt=""></p>
+        <div class="panel">
+            <p>Using Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to
+                create Object access rules.Using Postgres Row Level Security to create Object access rules.Using
+                Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to create
+                Object access rules.Using Postgres Row Level Security to create Object access rules.</p>
+        </div>
+
+        <p class="accordion">Using Postgres Row Level Security to create Object access rules. <img
+                src="assets/media/icons/arrpw_nav.svg" alt=""></p>
+        <div class="panel">
+            <p>Using Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to
+                create Object access rules.Using Postgres Row Level Security to create Object access rules.Using
+                Postgres Row Level Security to create Object access rules.Using Postgres Row Level Security to create
+                Object access rules.Using Postgres Row Level Security to create Object access rules.</p>
+        </div>
+
+        <script>
+            var acc = document.getElementsByClassName('accordion');
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener('click', function () {
+                    this.classList.toggle('active');
+
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + 'px';
+                    }
+                })
+            }
+        </script>
+    </div>
+</body>
+
+</html>
